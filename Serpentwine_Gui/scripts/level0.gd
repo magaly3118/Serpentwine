@@ -9,10 +9,11 @@ func _ready():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
-		if PauseScene.visible == true:
-			PauseScene.visible = false
-		else:
-			PauseScene.visible = true
+		if OptionsScene.visible == false:
+			if PauseScene.visible == true:
+				PauseScene.visible = false
+			else:
+				PauseScene.visible = true
 			
 func _input(event):
 	if PauseScene.visible == true:
