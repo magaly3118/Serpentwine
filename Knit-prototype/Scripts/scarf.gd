@@ -59,16 +59,16 @@ func move_scarf():
 
 # Taking in user input for movement control
 func user_inputs():
-	if(Input.is_action_just_pressed("ui_up")):
+	if(Input.is_action_just_pressed("ui_up") and direction != DOWN):
 		direction = UP
 		set_rotation(0)
-	elif(Input.is_action_just_pressed("ui_down")):
+	elif(Input.is_action_just_pressed("ui_down") and direction != UP):
 		direction = DOWN
 		set_rotation(PI)
-	elif(Input.is_action_just_pressed("ui_left")):
+	elif(Input.is_action_just_pressed("ui_left") and direction != RIGHT):
 		direction = LEFT
 		set_rotation((3*PI)/2)
-	elif(Input.is_action_just_pressed("ui_right")):
+	elif(Input.is_action_just_pressed("ui_right") and direction != LEFT):
 		direction = RIGHT
 		set_rotation(PI/2)
 
