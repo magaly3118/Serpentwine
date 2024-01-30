@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdedkl07sgvw3"]
+[gd_scene load_steps=7 format=3 uid="uid://bdedkl07sgvw3"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_l4i4k"]
 [ext_resource type="PackedScene" uid="uid://dtgoqskqwm3vw" path="res://Scenes/scarf.tscn" id="2_qbr5s"]
 [ext_resource type="Script" path="res://Scripts/bound.gd" id="3_f6gnd"]
+[ext_resource type="Texture2D" uid="uid://bpk5x5jg05105" path="res://TestingAssets/test_gameplay_bg.png" id="4_duagb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7btrs"]
 size = Vector2(1244, 37)
@@ -13,44 +14,56 @@ size = Vector2(34, 661)
 [node name="level" type="Node2D" groups=["main"]]
 script = ExtResource("1_l4i4k")
 
-[node name="scarf" parent="." instance=ExtResource("2_qbr5s")]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="gameplay_bg" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(108.5, 30)
+texture = ExtResource("4_duagb")
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="score_lable" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="TopBound" type="Area2D" parent="."]
-position = Vector2(0, -330)
+position = Vector2(640, 28)
 script = ExtResource("3_f6gnd")
 
 [node name="TopCollision" type="CollisionShape2D" parent="TopBound"]
 shape = SubResource("RectangleShape2D_7btrs")
 
 [node name="BotBound" type="Area2D" parent="."]
-position = Vector2(0, 350)
+position = Vector2(640, 576)
 script = ExtResource("3_f6gnd")
 
 [node name="BotCollision" type="CollisionShape2D" parent="BotBound"]
 shape = SubResource("RectangleShape2D_7btrs")
 
 [node name="LeftBound" type="Area2D" parent="."]
-position = Vector2(-600, 0)
+position = Vector2(107, 300)
 script = ExtResource("3_f6gnd")
 
 [node name="LeftCollision" type="CollisionShape2D" parent="LeftBound"]
 shape = SubResource("RectangleShape2D_n1ele")
 
 [node name="RightBound" type="Area2D" parent="."]
-position = Vector2(600, 0)
+position = Vector2(1170, 300)
 script = ExtResource("3_f6gnd")
 
 [node name="RightCollision" type="CollisionShape2D" parent="RightBound"]
 shape = SubResource("RectangleShape2D_n1ele")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="scarf" parent="." instance=ExtResource("2_qbr5s")]
+position = Vector2(640, 380)
 
-[node name="score_lable" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+anchor_mode = 0
 
 [connection signal="area_entered" from="TopBound" to="TopBound" method="_on_area_entered"]
 [connection signal="area_entered" from="BotBound" to="BotBound" method="_on_area_entered"]

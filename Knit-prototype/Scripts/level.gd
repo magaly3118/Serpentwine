@@ -13,8 +13,8 @@ func add_yarn():
 	# randmizer to pick yarn color
 	# assign corrisponding colored yarn ball asset, maybe make a function for it
 	
-	# sets the yarn ball in a random position 
-	instance.global_position = Vector2(randi_range(-500,500),randi_range(-250,250))
+	# sets the yarn ball in a random position Vector2(rand_x,rand_y)
+	instance.global_position = Vector2(randi_range(200,1100),randi_range(55,500))
 	# in yarn, connect signal "yarn_used" to calling function spawn_yarn
 	instance.yarn_used.connect(spawn_yarn)
 	# adding a yarn node to level node
@@ -30,7 +30,7 @@ func spawn_yarn():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$VBoxContainer/score_lable.text = "Rows: " + (str(score))
+	$VBoxContainer/VBoxContainer/score_lable.text = "Rows: " + (str(score))
 
 func end_game():
 	# add end game code!!!
