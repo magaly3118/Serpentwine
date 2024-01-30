@@ -94,5 +94,5 @@ func add_body_tile():
 func change_head_sprite():
 	# reverse sprite visibility
 	# originally, one sprite is set to visible and one is set to not visible
-	$head/needles_01.visible = not $head/needles_01.visible 
-	$head/needles_02.visible = not $head/needles_02.visible
+	$head/needles_sprite_01.visible = not $head/needles_sprite_01.visible 
+	$head/needles_sprite_02.visible = not $head/needles_sprite_02.visible
