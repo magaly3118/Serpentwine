@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgnp2e7qm133u"]
+
+[ext_resource type="Script" path="res://Scripts/yarn.gd" id="1_navwh"]
+[ext_resource type="Texture2D" uid="uid://bx1wy6n8j64oo" path="res://TestingAssets/BallYarn_ColorReshadedPink_Tiny.png" id="2_8e5wi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_og2rr"]
+radius = 18.0
+
+[node name="yarn" type="Area2D"]
+script = ExtResource("1_navwh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 4
+texture = ExtResource("2_8e5wi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -1)
+shape = SubResource("CircleShape2D_og2rr")
+
+[connection signal="area_entered" from="." to="." method="_on_yarn_grabbed"]

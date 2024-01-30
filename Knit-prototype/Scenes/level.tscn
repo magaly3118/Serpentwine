@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdedkl07sgvw3"]
+
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_l4i4k"]
+[ext_resource type="PackedScene" uid="uid://dtgoqskqwm3vw" path="res://Scenes/scarf.tscn" id="2_qbr5s"]
+[ext_resource type="Script" path="res://Scripts/bound.gd" id="3_f6gnd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7btrs"]
+size = Vector2(1244, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1ele"]
+size = Vector2(34, 661)
+
+[node name="level" type="Node2D" groups=["main"]]
+script = ExtResource("1_l4i4k")
+
+[node name="scarf" parent="." instance=ExtResource("2_qbr5s")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TopBound" type="Area2D" parent="."]
+position = Vector2(0, -330)
+script = ExtResource("3_f6gnd")
+
+[node name="TopCollision" type="CollisionShape2D" parent="TopBound"]
+shape = SubResource("RectangleShape2D_7btrs")
+
+[node name="BotBound" type="Area2D" parent="."]
+position = Vector2(0, 350)
+script = ExtResource("3_f6gnd")
+
+[node name="BotCollision" type="CollisionShape2D" parent="BotBound"]
+shape = SubResource("RectangleShape2D_7btrs")
+
+[node name="LeftBound" type="Area2D" parent="."]
+position = Vector2(-600, 0)
+script = ExtResource("3_f6gnd")
+
+[node name="LeftCollision" type="CollisionShape2D" parent="LeftBound"]
+shape = SubResource("RectangleShape2D_n1ele")
+
+[node name="RightBound" type="Area2D" parent="."]
+position = Vector2(600, 0)
+script = ExtResource("3_f6gnd")
+
+[node name="RightCollision" type="CollisionShape2D" parent="RightBound"]
+shape = SubResource("RectangleShape2D_n1ele")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="score_lable" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[connection signal="area_entered" from="TopBound" to="TopBound" method="_on_area_entered"]
+[connection signal="area_entered" from="BotBound" to="BotBound" method="_on_area_entered"]
+[connection signal="area_entered" from="LeftBound" to="LeftBound" method="_on_area_entered"]
+[connection signal="area_entered" from="RightBound" to="RightBound" method="_on_area_entered"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtgoqskqwm3vw"]
+
+[ext_resource type="Script" path="res://scarf.gd" id="1_ui11a"]
+[ext_resource type="Texture2D" uid="uid://dqtnsu6dof2rl" path="res://KnittingNeedles_ColorPink_Tiny.png" id="2_ftdaf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwghm"]
+size = Vector2(62, 62)
+
+[node name="scarf" type="Node2D"]
+script = ExtResource("1_ui11a")
+
+[node name="head" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="head"]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_ftdaf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="head"]
+shape = SubResource("RectangleShape2D_bwghm")

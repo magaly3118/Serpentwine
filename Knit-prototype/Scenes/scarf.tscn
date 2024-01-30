@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtgoqskqwm3vw"]
+
+[ext_resource type="Script" path="res://Scripts/scarf.gd" id="1_ui11a"]
+[ext_resource type="Texture2D" uid="uid://b2g86dk3xtpgy" path="res://TestingAssets/needles_01_better.png" id="2_ujd3r"]
+[ext_resource type="Texture2D" uid="uid://bsvcs1inp0ci5" path="res://TestingAssets/needles_02.png" id="3_6ncbg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwghm"]
+size = Vector2(62, 62)
+
+[node name="scarf" type="Node2D"]
+script = ExtResource("1_ui11a")
+
+[node name="head" type="Area2D" parent="."]
+
+[node name="needles_sprite_01" type="Sprite2D" parent="head"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_ujd3r")
+
+[node name="needles_sprite_02" type="Sprite2D" parent="head"]
+visible = false
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_6ncbg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="head"]
+shape = SubResource("RectangleShape2D_bwghm")

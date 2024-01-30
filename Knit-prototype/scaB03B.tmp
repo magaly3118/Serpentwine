@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtgoqskqwm3vw"]
+
+[ext_resource type="Script" path="res://scarf.gd" id="1_ui11a"]
+[ext_resource type="Texture2D" uid="uid://7bmn2se58hfc" path="res://icon.svg" id="2_mamh5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwghm"]
+size = Vector2(64, 64)
+
+[node name="scarf" type="Node2D"]
+position = Vector2(570, 310)
+script = ExtResource("1_ui11a")
+
+[node name="head" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="head"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mamh5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="head"]
+shape = SubResource("RectangleShape2D_bwghm")
