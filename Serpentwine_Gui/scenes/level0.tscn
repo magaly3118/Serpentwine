@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4ksh5t00hhf"]
+
+[ext_resource type="Script" path="res://scripts/level0.gd" id="1_6qlvd"]
+[ext_resource type="PackedScene" uid="uid://daawhvp3l0413" path="res://scenes/pause_menu.tscn" id="2_wcc3t"]
+[ext_resource type="Texture2D" uid="uid://biegb11vysw5n" path="res://assets/bgtemp.png" id="3_fwl1h"]
+[ext_resource type="PackedScene" uid="uid://pfpbnocbwi1p" path="res://scenes/option_menu.tscn" id="3_pg4xq"]
+[ext_resource type="Script" path="res://scenes/option_menu.gd" id="4_jep5w"]
+
+[node name="Level0" type="Node2D"]
+script = ExtResource("1_6qlvd")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_wcc3t")]
+visible = false
+top_level = true
+
+[node name="OptionsMenu" parent="." instance=ExtResource("3_pg4xq")]
+visible = false
+script = ExtResource("4_jep5w")
+
+[node name="Bgtemp" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(579, 323)
+scale = Vector2(1.65649, 1.65649)
+texture = ExtResource("3_fwl1h")
+
+[connection signal="visibility_changed" from="OptionsMenu" to="PauseMenu" method="_on_options_menu_visibility_changed"]
