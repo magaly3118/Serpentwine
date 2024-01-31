@@ -3,10 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_l4i4k"]
 [ext_resource type="PackedScene" uid="uid://dtgoqskqwm3vw" path="res://Scenes/scarf.tscn" id="2_qbr5s"]
 [ext_resource type="Script" path="res://Scripts/bound.gd" id="3_f6gnd"]
-<<<<<<< HEAD
+
 [ext_resource type="Texture2D" uid="uid://bpk5x5jg05105" path="res://TestingAssets/test_gameplay_bg.png" id="4_duagb"]
-=======
->>>>>>> parent of e50c860 (Merge pull request #3 from Nerdabelle/avagreene-patch-3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7btrs"]
 size = Vector2(1244, 37)
