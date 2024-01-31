@@ -49,4 +49,5 @@ func _process(delta):
 func end_game():
 	# add end game code!!!
 	get_tree().paused = true
+	$game_over/game_over_screen.show()
 	

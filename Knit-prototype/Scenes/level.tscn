@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdedkl07sgvw3"]
+[gd_scene load_steps=8 format=3 uid="uid://bdedkl07sgvw3"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_l4i4k"]
 [ext_resource type="PackedScene" uid="uid://dtgoqskqwm3vw" path="res://Scenes/scarf.tscn" id="2_qbr5s"]
 [ext_resource type="Script" path="res://Scripts/bound.gd" id="3_f6gnd"]
 [ext_resource type="Texture2D" uid="uid://bpk5x5jg05105" path="res://TestingAssets/test_gameplay_bg.png" id="4_duagb"]
+[ext_resource type="Texture2D" uid="uid://brqecyrmsmb7l" path="res://TestingAssets/game_over_test.jpg" id="5_in6mb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7btrs"]
 size = Vector2(1244, 37)
@@ -64,6 +65,16 @@ position = Vector2(640, 380)
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
 anchor_mode = 0
+
+[node name="game_over" type="Node2D" parent="."]
+z_index = 1
+z_as_relative = false
+position = Vector2(640, 350)
+
+[node name="game_over_screen" type="Sprite2D" parent="game_over"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_in6mb")
 
 [connection signal="area_entered" from="TopBound" to="TopBound" method="_on_area_entered"]
 [connection signal="area_entered" from="BotBound" to="BotBound" method="_on_area_entered"]
