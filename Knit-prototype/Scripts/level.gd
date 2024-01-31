@@ -28,7 +28,7 @@ func add_yarn():
 	next_body_texture_id = texture_id # update id for future use 
 	
 	# sets the yarn ball in a random position 
-	instance.global_position = Vector2(randi_range(200,1100),randi_range(55,500))
+	instance.global_position = Vector2(randi_range(220,1080),randi_range(100,500))
 	# in yarn, connect signal "yarn_used" to calling function spawn_yarn
 	instance.yarn_used.connect(spawn_yarn)
 	# adding a yarn node to level node
