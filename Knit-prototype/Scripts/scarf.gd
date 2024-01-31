@@ -80,11 +80,13 @@ func add_body_tile(texture_id: int):
 	var last_tile = body_tiles_list.back() # returns null if empty
 	var instance = scarf_body.instantiate() # create scarf_body node
 	
+	# COLOR
 	# apply corrext texture to body tile based on color of yarn grabbed
 	var sprite = instance.get_child(0)
 	var texture = textures[texture_id]
 	sprite.texture = texture
-			
+	
+	# MOVEMENT
 	if(last_tile): # if there are body tiles in the list
 		get_owner().add_child(instance) # add this scarf_body as child to owner node
 		instance.global_position = last_tile.global_position # set scarf body's position as the position of the last tile
