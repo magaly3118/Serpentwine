@@ -3,8 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/scarf_body.gd" id="1_rcmx0"]
 [ext_resource type="Texture2D" uid="uid://c7p5snjqqro1d" path="res://TestingAssets/body.png" id="2_xs54w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivvio"]
-size = Vector2(60, 60)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ui3sm"]
 
 [node name="scarf_body" type="Area2D" groups=["body"]]
 script = ExtResource("1_rcmx0")
@@ -15,6 +14,7 @@ scale = Vector2(1.25, 1.8)
 texture = ExtResource("2_xs54w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ivvio")
+scale = Vector2(2.5, 2.5)
+shape = SubResource("CircleShape2D_ui3sm")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
