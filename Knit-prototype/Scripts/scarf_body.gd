@@ -40,6 +40,7 @@ func add_to_trail(dir):
 
 func _on_area_entered(area):
 	if(area.name == "head"):
+		print("collision into scarf body")
 	 #calling end_game func in level
 		var main = get_tree().get_first_node_in_group("main")
 		main.end_game()
