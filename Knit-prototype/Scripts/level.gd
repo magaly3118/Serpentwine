@@ -44,7 +44,7 @@ func spawn_yarn():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$VBoxContainer/score_lable.text = "Rows: " + (str(score))
+	$VBoxContainer/VBoxContainer/score_lable.text = "Rows: " + (str(score))
 
 func end_game():
 	# add end game code!!!
