@@ -19,6 +19,10 @@ var body_tiles_list = [] # list of scarf body tiles, see func add_body_tiles()
 
 @onready var scarf_body = preload("res://Scenes/scarf_body.tscn")
 
+# body tile textures
+var dark_yarn = preload("res://TestingAssets/body_test.jpg")
+var light_yarn = preload("res://TestingAssets/body.png")
+var textures = [dark_yarn, light_yarn]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -72,10 +76,16 @@ func user_inputs():
 		direction = RIGHT
 		set_rotation(PI/2)
 
-func add_body_tile():
+func add_body_tile(texture_id: int):
 	var last_tile = body_tiles_list.back() # returns null if empty
+	var instance = scarf_body.instantiate() # create scarf_body node
+	
+	# apply corrext texture to body tile based on color of yarn grabbed
+	var sprite = instance.get_child(0)
+	var texture = textures[texture_id]
+	sprite.texture = texture
+			
 	if(last_tile): # if there are body tiles in the list
-		var instance = scarf_body.instantiate() # create scarf_body node
 		get_owner().add_child(instance) # add this scarf_body as child to owner node
 		instance.global_position = last_tile.global_position # set scarf body's position as the position of the last tile
 		instance.move_trail = last_tile.move_trail.duplicate() # duplicate the list of movements to follow
@@ -83,7 +93,6 @@ func add_body_tile():
 		instance.previous_piece = last_piece_added # set current previous piece to be previous last piece
 		last_piece_added = instance # set current last piece to be the newly made piece
 	else: # first body tile being added to head, there are not any body tiles in the list yet
-		var instance = scarf_body.instantiate() # create scarf_body node
 		instance.get_node("CollisionShape2D").set_disabled(true) # disable collision
 		get_owner().add_child(instance) # add this scarf_body as child to owner node
 		instance.global_position = global_position # put it in same current position as head
