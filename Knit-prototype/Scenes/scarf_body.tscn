@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0ex8xhdapf45"]
 
 [ext_resource type="Script" path="res://Scripts/scarf_body.gd" id="1_rcmx0"]
-[ext_resource type="Texture2D" uid="uid://c7p5snjqqro1d" path="res://TestingAssets/body.png" id="2_xs54w"]
+[ext_resource type="Texture2D" uid="uid://dn7br1bmf6gvj" path="res://Assets/ScarfBodyTiles/KnittingSquare_Blue_Tiny.png" id="2_uyrvo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ui3sm"]
 
@@ -10,8 +10,8 @@ script = ExtResource("1_rcmx0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-scale = Vector2(1.25, 1.8)
-texture = ExtResource("2_xs54w")
+scale = Vector2(1.13, 1.13)
+texture = ExtResource("2_uyrvo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.5, 2.5)

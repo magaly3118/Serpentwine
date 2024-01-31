@@ -4,9 +4,10 @@ extends Node2D
 var score = 0
 
 # yarn textures
-var dark_yarn = preload("res://TestingAssets/BallYarn_ColorReshadedPink_Tiny.png")
-var light_yarn = preload("res://TestingAssets/BallYarn_Pink_Tiny.png")
-var textures = [dark_yarn, light_yarn]
+var blue_yarn = preload("res://Assets/YarnBalls/BallYarn_ColorReshadedBlue_Tiny.png")
+var pink_yarn = preload("res://Assets/YarnBalls/BallYarn_ColorReshadedPink_Tiny.png")
+var purp_yarn = preload("res://Assets/YarnBalls/BallYarn_ColorReshadedPurple_Tiny.png")
+var textures = [blue_yarn, pink_yarn, purp_yarn]
 
 # texture id for body tiles
 var next_body_texture_id: int

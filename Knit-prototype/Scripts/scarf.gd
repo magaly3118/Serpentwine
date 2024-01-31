@@ -20,9 +20,10 @@ var body_tiles_list = [] # list of scarf body tiles, see func add_body_tiles()
 @onready var scarf_body = preload("res://Scenes/scarf_body.tscn")
 
 # body tile textures
-var dark_yarn = preload("res://TestingAssets/body_test.jpg")
-var light_yarn = preload("res://TestingAssets/body.png")
-var textures = [dark_yarn, light_yarn]
+var blue_yarn = preload("res://Assets/ScarfBodyTiles/KnittingSquare_Blue_Tiny.png")
+var pink_yarn = preload("res://Assets/ScarfBodyTiles/KnittingSquare_Pink_Tiny.png")
+var purp_yarn = preload("res://Assets/ScarfBodyTiles/KnittingSquare_Purple_Tiny.png")
+var textures = [blue_yarn, pink_yarn, purp_yarn]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
