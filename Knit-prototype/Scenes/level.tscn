@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdedkl07sgvw3"]
+[gd_scene load_steps=7 format=3 uid="uid://bdedkl07sgvw3"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_l4i4k"]
 [ext_resource type="PackedScene" uid="uid://dtgoqskqwm3vw" path="res://Scenes/scarf.tscn" id="2_qbr5s"]
 [ext_resource type="Script" path="res://Scripts/bound.gd" id="3_f6gnd"]
+[ext_resource type="Texture2D" uid="uid://b0oc4la8ps0nk" path="res://TestingAssets/Game_Over_Colors.bmp" id="4_vheq1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7btrs"]
 size = Vector2(1244, 37)
@@ -51,6 +52,12 @@ offset_bottom = 40.0
 
 [node name="score_lable" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="GameOverLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverScreen" type="Sprite2D" parent="GameOverLayer"]
+visible = false
+texture = ExtResource("4_vheq1")
 
 [connection signal="area_entered" from="TopBound" to="TopBound" method="_on_area_entered"]
 [connection signal="area_entered" from="BotBound" to="BotBound" method="_on_area_entered"]

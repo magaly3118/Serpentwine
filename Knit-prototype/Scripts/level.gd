@@ -35,4 +35,10 @@ func _process(delta):
 func end_game():
 	# add end game code!!!
 	get_tree().paused = true
+	game_over() 
+
+#enables the CanvasLayer node called GameOverLayer
+func game_over():
+	var game_over_image = get_node("GameOverLayer/GameOverScreen") 
+	game_over_image.visible = true #sets the visibility of the layer to true
 	
