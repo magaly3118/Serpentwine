@@ -67,5 +67,6 @@ func _process(delta):
 func end_game():
 	# add end game code!!!
 	get_tree().paused = true
-	$game_over/game_over_screen.show()
+	# pops up the end game screen, need to resize the image with finalized asset
+	#$game_over/game_over_screen.show() 
 	

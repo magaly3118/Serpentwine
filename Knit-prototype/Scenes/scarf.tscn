@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dtgoqskqwm3vw"]
 
 [ext_resource type="Script" path="res://Scripts/scarf.gd" id="1_ui11a"]
-[ext_resource type="Texture2D" uid="uid://b2g86dk3xtpgy" path="res://TestingAssets/needles_01_better.png" id="2_ujd3r"]
-[ext_resource type="Texture2D" uid="uid://bsvcs1inp0ci5" path="res://TestingAssets/needles_02.png" id="3_6ncbg"]
+[ext_resource type="Texture2D" uid="uid://dclefryah00jb" path="res://Assets/KnittingNeedles/AnimatedNeedle01_Pink_Tiny.png" id="2_thkod"]
+[ext_resource type="Texture2D" uid="uid://bajd2wc8q0u33" path="res://Assets/KnittingNeedles/AnimatedNeedle02_Pink_Tiny.png" id="3_kchjb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yseoh"]
 
@@ -12,13 +12,14 @@ script = ExtResource("1_ui11a")
 [node name="head" type="Area2D" parent="."]
 
 [node name="needles_sprite_01" type="Sprite2D" parent="head"]
+position = Vector2(0, 8)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("2_ujd3r")
+texture = ExtResource("2_thkod")
 
 [node name="needles_sprite_02" type="Sprite2D" parent="head"]
 visible = false
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_6ncbg")
+texture = ExtResource("3_kchjb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="head"]
 position = Vector2(3, 10)
