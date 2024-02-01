@@ -14,7 +14,6 @@ var direction = UP
 enum{nan, UP, DOWN, LEFT, RIGHT}
 
 # scarf body tiles tracking variables
-var last_piece_added
 var body_tiles_list = [] # list of scarf body tiles, see func add_body_tiles()
 
 @onready var scarf_body = preload("res://Scenes/scarf_body.tscn")
@@ -78,7 +77,11 @@ func user_inputs():
 		set_rotation(PI/2)
 
 func add_body_tile(texture_id: int):
-	var last_tile = body_tiles_list.back() # returns null if empty
+	var body_tiles = get_tree().get_nodes_in_group("body") # get all body tiles as a list
+	for tile in body_tiles: # for each scarf_body node in the list
+		tile.time += 0.2 # makes rest of body tiles wait
+
+	var first_tile = body_tiles_list.back() # gets current first_tile, returns null if empty
 	var instance = scarf_body.instantiate() # create scarf_body node
 	
 	# COLOR
@@ -87,21 +90,23 @@ func add_body_tile(texture_id: int):
 	var texture = textures[texture_id]
 	sprite.texture = texture
 	
-	# MOVEMENT
-	if(last_tile): # if there are body tiles in the list
+	# NEWVMENT
+	if(first_tile):# if there are body tiles in the list
+		instance.get_node("CollisionShape2D").set_disabled(true) # disable collision
 		get_owner().add_child(instance) # add this scarf_body as child to owner node
-		instance.global_position = last_tile.global_position # set scarf body's position as the position of the last tile
-		instance.move_trail = last_tile.move_trail.duplicate() # duplicate the list of movements to follow
-		body_tiles_list.append(instance) # add to my body tile list
-		instance.previous_piece = last_piece_added # set current previous piece to be previous last piece
-		last_piece_added = instance # set current last piece to be the newly made piece
+		instance.global_position = global_position # get position from head
+		body_tiles_list.append(instance) # add to my body tile list, note list is opposite of neck to tail order
+		first_tile.get_node("CollisionShape2D").set_disabled(false) # enable collision
+		first_tile.prev_tile = instance
+		instance.prev_tile = self
+		first_tile = instance
 	else: # first body tile being added to head, there are not any body tiles in the list yet
 		instance.get_node("CollisionShape2D").set_disabled(true) # disable collision
 		get_owner().add_child(instance) # add this scarf_body as child to owner node
-		instance.global_position = global_position # put it in same current position as head
-		body_tiles_list.append(instance) # add to my body tile list
-		instance.previous_piece = self # set previous piece to be the head, which is the previous last piece
-		last_piece_added = instance # set current last piece as the newly made piece
+		instance.global_position = global_position # get position from head
+		body_tiles_list.append(instance) # add to my body tile list, note list is opposite of neck to tail order
+		instance.prev_tile = self # prev_tile is head
+		first_tile = instance
 		
 func change_head_sprite():
 	# reverse sprite visibility

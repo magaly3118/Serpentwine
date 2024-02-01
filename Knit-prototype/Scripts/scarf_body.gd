@@ -1,11 +1,11 @@
 extends Area2D
 var move_trail=[] # List of head movement for body tiles to follow
 var direction
-var time = 0.2
-var time_to_move = 0.015
+var time = 0.2 # 
+var time_to_move = 0.015 # length of timer 
 @export var move_distance : float = 6
 enum{nan, UP, DOWN, LEFT, RIGHT}
-var previous_piece
+var prev_tile
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,7 +32,7 @@ func move_scarf():
 		global_translate(Vector2(-1,0) * move_distance)
 	elif(direction == RIGHT):
 		global_translate(Vector2(1,0) * move_distance)
-	look_at(previous_piece.global_position)
+	look_at(prev_tile.global_position)
 
 # adding movement of the head to the movement trail list
 func add_to_trail(dir):

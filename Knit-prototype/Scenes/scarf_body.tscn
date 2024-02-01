@@ -10,7 +10,7 @@ script = ExtResource("1_rcmx0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-scale = Vector2(1.13, 1.13)
+scale = Vector2(1.12, 1.12)
 texture = ExtResource("2_uyrvo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
