@@ -54,6 +54,7 @@ func move_scarf():
 		global_translate(Vector2(-1,0) * move_distance)
 	elif(direction == RIGHT):
 		global_translate(Vector2(1,0) * move_distance)
+	
 	# Move body along aswell
 	# all body tiles are grouped together in a group called "body"
 	# utilizing grouping in godot can be helpful
@@ -89,19 +90,17 @@ func add_body_tile(texture_id: int):
 	var sprite = instance.get_child(0)
 	var texture = textures[texture_id]
 	sprite.texture = texture
-	
+		
 	# NEWVMENT
 	if(first_tile):# if there are body tiles in the list
-		instance.get_node("CollisionShape2D").set_disabled(true) # disable collision
 		get_owner().add_child(instance) # add this scarf_body as child to owner node
 		instance.global_position = global_position # get position from head
 		body_tiles_list.append(instance) # add to my body tile list, note list is opposite of neck to tail order
-		first_tile.get_node("CollisionShape2D").set_disabled(false) # enable collision
+		first_tile.collisionsEnabled = true # enable collision of previous first tile
 		first_tile.prev_tile = instance
 		instance.prev_tile = self
 		first_tile = instance
 	else: # first body tile being added to head, there are not any body tiles in the list yet
-		instance.get_node("CollisionShape2D").set_disabled(true) # disable collision
 		get_owner().add_child(instance) # add this scarf_body as child to owner node
 		instance.global_position = global_position # get position from head
 		body_tiles_list.append(instance) # add to my body tile list, note list is opposite of neck to tail order

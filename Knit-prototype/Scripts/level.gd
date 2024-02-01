@@ -10,12 +10,23 @@ var purp_yarn = preload("res://Assets/YarnBalls/BallYarn_ColorReshadedPurple_Tin
 var textures = [blue_yarn, pink_yarn, purp_yarn]
 
 # texture id for body tiles
-var next_body_texture_id: int
+var next_texture_id: int
+
+# needle textures
+var blue_needle_1 = preload("res://Assets/KnittingNeedles/AnimatedNeedle01_Blue_Tiny.png")
+var pink_needle_1 = preload("res://Assets/KnittingNeedles/AnimatedNeedle01_Pink_Tiny.png")
+var purp_needle_1 = preload("res://Assets/KnittingNeedles/AnimatedNeedle01_Purple_Tiny.png")
+var needles_textures_1 = [blue_needle_1, pink_needle_1, purp_needle_1]
+
+var blue_needle_2 = preload("res://Assets/KnittingNeedles/AnimatedNeedle02_Blue_Tiny.png")
+var pink_needle_2 = preload("res://Assets/KnittingNeedles/AnimatedNeedle02_Pink_Tiny.png")
+var purp_needle_2 = preload("res://Assets/KnittingNeedles/AnimatedNeedle02_Purple_Tiny.png")
+var needles_textures_2 = [blue_needle_2, pink_needle_2, purp_needle_2]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_yarn()
-
+	_update_needle_sprites(next_texture_id) # mathc needles to the first spawned yarn
 
 func add_yarn():
 	var instance = yarn.instantiate()
@@ -26,7 +37,7 @@ func add_yarn():
 	var yarn_sprite = instance.get_child(0)
 	if yarn_sprite.texture != new_texture:
 		yarn_sprite.texture = new_texture
-	next_body_texture_id = texture_id # update id for future use 
+	next_texture_id = texture_id # update id for future use 
 	
 	# sets the yarn ball in a random position 
 	instance.global_position = Vector2(randi_range(220,1080),randi_range(100,500))
@@ -39,9 +50,15 @@ func spawn_yarn():
 	# currently, score is just adding 5 for every ball of yarn grabbed
 	score += 5
 	# add a scarf body tile
-	$scarf.add_body_tile(next_body_texture_id)
+	$scarf.add_body_tile(next_texture_id)
+	# change needles color to match new body tile
+	_update_needle_sprites(next_texture_id)
 	# adds new yarn ball onto play area
 	add_yarn()
+
+func _update_needle_sprites(texture_id):
+	$scarf/head/needles_sprite_01.texture = needles_textures_1[texture_id]
+	$scarf/head/needles_sprite_02.texture = needles_textures_2[texture_id]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -50,5 +67,5 @@ func _process(delta):
 func end_game():
 	# add end game code!!!
 	get_tree().paused = true
-	#$game_over/game_over_screen.show()
+	$game_over/game_over_screen.show()
 	
