@@ -1,6 +1,7 @@
 extends Node2D
 
 # scarf movement variables
+var can_move = true
 var time = 0
 var time_to_move = 0.015
 @export var move_distance : float = 6
@@ -30,19 +31,24 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	user_inputs()
-	# Timer for movement
-	time -= delta
-	sprite_timer -= delta
-	# timer for scarf movement
-	if (time < 0): 
-		move_scarf()
-		time = time_to_move
-	
-	# timer for head sprite changes, pseudo animation
-	if(sprite_timer < 0):
-		change_head_sprite()
-		sprite_timer = sprite_swap_time
+	if(can_move):
+		user_inputs()
+		# Timer for movement
+		time -= delta
+		sprite_timer -= delta
+		# timer for scarf movement
+		if (time < 0): 
+			move_scarf()
+			time = time_to_move
+		
+		# timer for head sprite changes, pseudo animation
+		if(sprite_timer < 0):
+			change_head_sprite()
+			sprite_timer = sprite_swap_time
+	else:
+		var body_tiles = get_tree().get_nodes_in_group("body") # get all body tiles as a list
+		for tile in body_tiles: # for each scarf_body node in the list
+			tile.can_move = false
 
 # moves head of scarf based off user input
 func move_scarf():
@@ -112,3 +118,4 @@ func change_head_sprite():
 	# originally, one sprite is set to visible and one is set to not visible
 	$head/needles_sprite_01.visible = not $head/needles_sprite_01.visible 
 	$head/needles_sprite_02.visible = not $head/needles_sprite_02.visible
+	$head/knit_sound.play(0)

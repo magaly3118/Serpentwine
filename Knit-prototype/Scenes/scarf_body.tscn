@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0ex8xhdapf45"]
+[gd_scene load_steps=5 format=3 uid="uid://c0ex8xhdapf45"]
 
 [ext_resource type="Script" path="res://Scripts/scarf_body.gd" id="1_rcmx0"]
 [ext_resource type="Texture2D" uid="uid://dn7br1bmf6gvj" path="res://Assets/ScarfBodyTiles/KnittingSquare_Blue_Tiny.png" id="2_uyrvo"]
+[ext_resource type="AudioStream" uid="uid://xwipj8ya0yk2" path="res://TestingAssets/audio/tangle_jingle.wav" id="3_wsvnd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ui3sm"]
 
@@ -16,5 +17,8 @@ texture = ExtResource("2_uyrvo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_ui3sm")
+
+[node name="tangle_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wsvnd")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -8,6 +8,7 @@ enum{nan, UP, DOWN, LEFT, RIGHT}
 var prev_tile
 # collisions are disabled until body tile isn't the first tile
 var collisionsEnabled: bool = false 
+var can_move = true
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,13 +17,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# Timer for movement
-	time -= delta
-	if (time < 0):
-		direction = move_trail.pop_front() # removes first item from list and returns it
-		if(direction): # should keep game from crashing, tile will just stop moving
-			move_scarf()
-		time = time_to_move
+	if(can_move):
+		# Timer for movement
+		time -= delta
+		if (time < 0):
+			direction = move_trail.pop_front() # removes first item from list and returns it
+			if(direction): # should keep game from crashing, tile will just stop moving
+				move_scarf()
+			time = time_to_move
 	
 # moves scarf body tile
 func move_scarf():
@@ -42,6 +44,7 @@ func add_to_trail(dir):
 
 func _on_area_entered(area):
 	if(area.name == "head" and collisionsEnabled):
+		$tangle_audio.play(0)
 		print("collision into body") # prints into console
 	 	#calling end_game func in level
 		var main = get_tree().get_first_node_in_group("main")

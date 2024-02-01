@@ -47,6 +47,8 @@ func add_yarn():
 	add_child(instance)
 
 func spawn_yarn():
+	# play sound effect of collecting yarn
+	$collect_sound.play(0)
 	# currently, score is just adding 5 for every ball of yarn grabbed
 	score += 5
 	# add a scarf body tile
@@ -65,8 +67,10 @@ func _process(delta):
 	$VBoxContainer/VBoxContainer/score_lable.text = "Rows: " + (str(score))
 
 func end_game():
+	$scarf.can_move = false
 	# add end game code!!!
-	get_tree().paused = true
+	#get_tree().paused = true
 	# pops up the end game screen, need to resize the image with finalized asset
-	#$game_over/game_over_screen.show() 
+	#$game_over/game_over_screen.show()
+
 	

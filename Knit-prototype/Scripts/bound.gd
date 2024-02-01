@@ -14,6 +14,7 @@ func _process(delta):
 func _on_area_entered(area):
 	# if head of scarf entires any of the bound collision shapes
 	if(area.name == "head"):
+		$wall_sound.play(0)
 		print("collision into wall bounds") # prints into console
 	 #calling end_game func in level
 		var main = get_tree().get_first_node_in_group("main")
