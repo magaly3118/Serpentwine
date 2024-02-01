@@ -7,7 +7,6 @@ func _ready():
 
 
 func _on_yarn_grabbed(area):
-	
 	if(area.name == "head"):
 		yarn_used.emit()
 		queue_free()

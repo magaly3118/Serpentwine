@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bx1wy6n8j64oo" path="res://TestingAssets/BallYarn_ColorReshadedPink_Tiny.png" id="2_8e5wi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_og2rr"]
-radius = 18.0
+radius = 24.0208
 
 [node name="yarn" type="Area2D"]
 script = ExtResource("1_navwh")
@@ -14,7 +14,7 @@ texture_filter = 4
 texture = ExtResource("2_8e5wi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -1)
+position = Vector2(6, -1)
 shape = SubResource("CircleShape2D_og2rr")
 
 [connection signal="area_entered" from="." to="." method="_on_yarn_grabbed"]

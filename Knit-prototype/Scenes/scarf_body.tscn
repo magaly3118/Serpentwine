@@ -14,7 +14,7 @@ scale = Vector2(1.12, 1.12)
 texture = ExtResource("2_uyrvo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_ui3sm")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
