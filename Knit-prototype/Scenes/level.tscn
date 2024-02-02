@@ -30,12 +30,20 @@ scale = Vector2(1.02648, 1.06342)
 texture = ExtResource("2_sk20m")
 centered = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-alignment = 2
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 150.0
+offset_top = 600.0
+offset_right = 1430.0
+offset_bottom = 600.0
 
-[node name="score_lable" type="Label" parent="VBoxContainer/VBoxContainer"]
-layout_mode = 2
+[node name="score_lable" type="Label" parent="Control"]
+offset_right = 1.0
+offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0.466667, 0.345098, 0.368627, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 38
 
 [node name="TopBound" type="Area2D" parent="."]
 position = Vector2(640, 28)

@@ -5,6 +5,8 @@ extends Node2D
 @onready var returnbutton: Button = get_node("OptionsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button")
 @onready var yarn = preload("res://Scenes/yarn.tscn")
 var score = 0
+var time = 0
+var time_to_move = 5
 
 # yarn textures
 var blue_yarn = preload("res://Assets/YarnBalls/BallYarn_ColorReshadedBlue_Tiny.png")
@@ -53,7 +55,7 @@ func spawn_yarn():
 	# play sound effect of collecting yarn
 	$collect_sound.play(0)
 	# currently, score is just adding 5 for every ball of yarn grabbed
-	score += 5
+	score += 100
 	# add a scarf body tile
 	$scarf.add_body_tile(next_texture_id)
 	# change needles color to match new body tile
@@ -67,7 +69,12 @@ func _update_needle_sprites(texture_id):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$VBoxContainer/VBoxContainer/score_lable.text = "Length: " + (str(score))
+	$Control/score_lable.text = "Score: " + (str(score))
+	time -= delta
+	# timer for adding score for being alive
+	if (time < 0): 
+		score += 10
+		time = time_to_move
 
 func end_game(sec):
 	$scarf.can_move = false # stop scarf movement
