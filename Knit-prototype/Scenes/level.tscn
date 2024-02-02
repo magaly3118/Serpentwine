@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bjahmfwgin5oq" path="res://Assets/Screens/GameLayout.png" id="2_sk20m"]
 [ext_resource type="Script" path="res://Scripts/bound.gd" id="3_f6gnd"]
 [ext_resource type="Texture2D" uid="uid://brqecyrmsmb7l" path="res://TestingAssets/game_over_test.jpg" id="5_in6mb"]
-[ext_resource type="AudioStream" uid="uid://fb7cprdmbfu5" path="res://TestingAssets/audio/collect_sound.wav" id="6_06p5t"]
-[ext_resource type="AudioStream" uid="uid://bmxrrpwxe2j63" path="res://TestingAssets/audio/wall_sound.wav" id="7_v175u"]
+[ext_resource type="AudioStream" uid="uid://fb7cprdmbfu5" path="res://Assets/audio/collect_sound.wav" id="6_06p5t"]
+[ext_resource type="AudioStream" uid="uid://bmxrrpwxe2j63" path="res://Assets/audio/wall_sound.wav" id="7_v175u"]
 [ext_resource type="PackedScene" uid="uid://bqcmg5a0547id" path="res://Scenes/pause_menu.tscn" id="8_05p5y"]
 [ext_resource type="PackedScene" uid="uid://budka15vti8do" path="res://Scenes/option_menu.tscn" id="9_ts0ou"]
 
@@ -39,6 +39,7 @@ offset_right = 1430.0
 offset_bottom = 600.0
 
 [node name="score_lable" type="Label" parent="Control"]
+layout_mode = 0
 offset_right = 1.0
 offset_bottom = 23.0
 theme_override_colors/font_shadow_color = Color(0.466667, 0.345098, 0.368627, 1)

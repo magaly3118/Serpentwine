@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bxxylohgw52pr"
-path="res://.godot/imported/knitting_sound.wav-4c22fee544a860fa42cd0cc7584f8c90.sample"
+path="res://.godot/imported/knitting_sound.wav-734ea85d51a426044c21b4a7ec5c2d49.sample"
 
 [deps]
 
-source_file="res://TestingAssets/audio/knitting_sound.wav"
-dest_files=["res://.godot/imported/knitting_sound.wav-4c22fee544a860fa42cd0cc7584f8c90.sample"]
+source_file="res://Assets/audio/knitting_sound.wav"
+dest_files=["res://.godot/imported/knitting_sound.wav-734ea85d51a426044c21b4a7ec5c2d49.sample"]
 
 [params]
 

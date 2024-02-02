@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/scarf.gd" id="1_ui11a"]
 [ext_resource type="Texture2D" uid="uid://dclefryah00jb" path="res://Assets/KnittingNeedles/AnimatedNeedle01_Pink_Tiny.png" id="2_thkod"]
 [ext_resource type="Texture2D" uid="uid://bajd2wc8q0u33" path="res://Assets/KnittingNeedles/AnimatedNeedle02_Pink_Tiny.png" id="3_kchjb"]
-[ext_resource type="AudioStream" uid="uid://bxxylohgw52pr" path="res://TestingAssets/audio/knitting_sound.wav" id="4_27i2t"]
+[ext_resource type="AudioStream" uid="uid://bxxylohgw52pr" path="res://Assets/audio/knitting_sound.wav" id="4_27i2t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yseoh"]
 

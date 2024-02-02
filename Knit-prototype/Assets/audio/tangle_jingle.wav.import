@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://xwipj8ya0yk2"
-path="res://.godot/imported/tangle_jingle.wav-04c978e82a0fde69ee528bc5623c5ce3.sample"
+path="res://.godot/imported/tangle_jingle.wav-9ba1cf691c3f72be571a391014372b6a.sample"
 
 [deps]
 
-source_file="res://TestingAssets/audio/tangle_jingle.wav"
-dest_files=["res://.godot/imported/tangle_jingle.wav-04c978e82a0fde69ee528bc5623c5ce3.sample"]
+source_file="res://Assets/audio/tangle_jingle.wav"
+dest_files=["res://.godot/imported/tangle_jingle.wav-9ba1cf691c3f72be571a391014372b6a.sample"]
 
 [params]
 
