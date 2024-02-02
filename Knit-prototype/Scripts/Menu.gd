@@ -16,7 +16,7 @@ func _process(delta):
 
 func _on_start_pressed():
 	$Menu/button_tick.play()
-	get_tree().change_scene_to_file("res://scenes/level.tscn")
+	get_tree().change_scene_to_file("res://Scenes/level.tscn")
 
 
 func _on_quit_pressed():

@@ -13,7 +13,7 @@ func _process(delta):
 
 func _on_main_menu_pressed():
 	$button_tick.play()
-	get_tree().change_scene_to_file("res://scenes/Menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
 
 func _on_options_pressed():
 	$button_tick.play()
