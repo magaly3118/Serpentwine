@@ -33,7 +33,7 @@ var pink_needle_2 = preload("res://Assets/KnittingNeedles/AnimatedNeedle02_Pink_
 var purp_needle_2 = preload("res://Assets/KnittingNeedles/AnimatedNeedle02_Purple_Tiny.png")
 var needles_textures_2 = [blue_needle_2, pink_needle_2, purp_needle_2]
 
-var start_time = 4
+var start_time = 5
 var total_time = start_time
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -63,10 +63,10 @@ func add_yarn():
 	add_child(instance)
 
 func spawn_yarn():
-	timer.stop
-	timer.wait_time = 4
-	pb.value =100
-	timer.start
+	timer.stop()
+	timer.wait_time = total_time
+	pb.value = 100
+	timer.start()
 	# play sound effect of collecting yarn
 	$collect_sound.play(0)
 	# currently, score is just adding 5 for every ball of yarn grabbed
@@ -78,8 +78,6 @@ func spawn_yarn():
 	# adds new yarn ball onto play area
 	add_yarn()
 
-	
-	
 
 func _update_needle_sprites(texture_id):
 	$scarf/head/needles_sprite_01.texture = needles_textures_1[texture_id]
@@ -102,8 +100,7 @@ func _process(delta):
 	
 		
 	if pb.value == 0:
-		#end_game(0)
-		pass
+		end_game(0)
 
 func end_game(sec):
 	$scarf.can_move = false # stop scarf movement

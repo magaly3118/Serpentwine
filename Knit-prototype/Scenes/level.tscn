@@ -147,7 +147,7 @@ texture_under = ExtResource("10_un13s")
 texture_progress = ExtResource("11_ekkpg")
 
 [node name="YarnTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 5.0
 autostart = true
 
 [node name="Every10" type="Timer" parent="."]
