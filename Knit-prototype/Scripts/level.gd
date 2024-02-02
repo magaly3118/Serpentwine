@@ -74,7 +74,7 @@ func end_game():
 	# add end game code!!!
 	#get_tree().paused = true
 	# pops up the end game screen, need to resize the image with finalized asset
-	#$game_over/game_over_screen.show()
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
