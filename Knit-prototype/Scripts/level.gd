@@ -1,5 +1,8 @@
 extends Node2D
-
+@onready var OptionsScene: ColorRect = find_child("OptionsMenu")
+@onready var PauseScene: ColorRect = find_child("PauseMenu")
+@onready var optionsbutton: Button = get_node("PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Options")
+@onready var returnbutton: Button = get_node("OptionsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button")
 @onready var yarn = preload("res://Scenes/yarn.tscn")
 var score = 0
 
@@ -73,4 +76,20 @@ func end_game():
 	# pops up the end game screen, need to resize the image with finalized asset
 	#$game_over/game_over_screen.show()
 
-	
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		if OptionsScene.visible == false:
+			if PauseScene.visible == true:
+				PauseScene.visible = false
+			else:
+				PauseScene.visible = true
+			
+func _input(event):
+	if PauseScene.visible == true:
+		if optionsbutton.button_pressed:
+			PauseScene.visible = false
+			OptionsScene.visible = true
+	if OptionsScene.visible == true:
+		if returnbutton.button_pressed:
+			OptionsScene.visible = false
+			PauseScene.visible = true

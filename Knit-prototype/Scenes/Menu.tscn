@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://duwra1wfbgffu"]
+[gd_scene load_steps=3 format=3 uid="uid://cpgnyodgu5see"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_f3p4r"]
 [ext_resource type="PackedScene" uid="uid://pfpbnocbwi1p" path="res://scenes/option_menu.tscn" id="2_t6brx"]
 
 [node name="Control" type="Control"]
+custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,6 +41,7 @@ text = "Quit"
 
 [node name="OptionsMenu" parent="." instance=ExtResource("2_t6brx")]
 visible = false
+custom_minimum_size = Vector2(1280, 720)
 layout_mode = 0
 
 [connection signal="pressed" from="Menu/Start" to="." method="_on_start_pressed"]

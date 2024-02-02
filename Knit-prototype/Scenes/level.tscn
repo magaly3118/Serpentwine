@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdedkl07sgvw3"]
+[gd_scene load_steps=12 format=3 uid="uid://bdedkl07sgvw3"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_l4i4k"]
 [ext_resource type="PackedScene" uid="uid://dtgoqskqwm3vw" path="res://Scenes/scarf.tscn" id="2_qbr5s"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://brqecyrmsmb7l" path="res://TestingAssets/game_over_test.jpg" id="5_in6mb"]
 [ext_resource type="AudioStream" uid="uid://fb7cprdmbfu5" path="res://TestingAssets/audio/collect_sound.wav" id="6_06p5t"]
 [ext_resource type="AudioStream" uid="uid://bmxrrpwxe2j63" path="res://TestingAssets/audio/wall_sound.wav" id="7_v175u"]
+[ext_resource type="PackedScene" uid="uid://bqcmg5a0547id" path="res://Scenes/pause_menu.tscn" id="8_05p5y"]
+[ext_resource type="PackedScene" uid="uid://budka15vti8do" path="res://Scenes/option_menu.tscn" id="9_ts0ou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7btrs"]
 size = Vector2(1244, 37)
@@ -15,6 +17,7 @@ size = Vector2(1244, 37)
 size = Vector2(34, 661)
 
 [node name="level" type="Node2D" groups=["main"]]
+z_index = -1
 script = ExtResource("1_l4i4k")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -109,6 +112,12 @@ texture = ExtResource("5_in6mb")
 
 [node name="collect_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_06p5t")
+
+[node name="PauseMenu" parent="." instance=ExtResource("8_05p5y")]
+visible = false
+
+[node name="OptionsMenu" parent="." instance=ExtResource("9_ts0ou")]
+visible = false
 
 [connection signal="area_entered" from="TopBound" to="TopBound" method="_on_area_entered"]
 [connection signal="area_entered" from="BotBound" to="BotBound" method="_on_area_entered"]
