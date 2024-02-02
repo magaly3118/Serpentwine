@@ -94,10 +94,11 @@ func _unhandled_input(event):
 		if OptionsScene.visible == false:
 			if PauseScene.visible == true:
 				PauseScene.visible = false
-				$scarf.toggle_can_move()
+				$scarf/head/knit_sound.play(1)
 			else:
 				PauseScene.visible = true
-				$scarf.toggle_can_move()
+				$scarf/head/knit_sound.stop()
+			$scarf.toggle_can_move()
 			
 func _input(event):
 	if PauseScene.visible == true:
