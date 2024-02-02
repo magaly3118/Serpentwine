@@ -1,9 +1,9 @@
 shader_type canvas_item;
 
 uniform sampler2D screen_texture: hint_screen_texture, repeat_disable, filter_linear_mipmap;
-uniform float blur_radius : hint_range(0, 1) = 0.2; // Radius of the blur effect
-uniform float blur_amount : hint_range(0, 5) = 1.0; // Strength of the blur effect
-uniform float blur_inner : hint_range(0, 1) = 0.6; // Inner edge of the blur effect
+uniform float blur_radius : hint_range(0, 1) = 3.0; // Radius of the blur effect
+uniform float blur_amount : hint_range(0, 5) = 2.0; // Strength of the blur effect
+uniform float blur_inner : hint_range(0, 1) = 1.0; // Inner edge of the blur effect
 uniform float blur_outer : hint_range(0, 1) = 0.66; // Outer edge of the blur effect
 
 void fragment() {
