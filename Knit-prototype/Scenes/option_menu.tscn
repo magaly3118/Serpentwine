@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://budka15vti8do"]
+[gd_scene load_steps=6 format=3 uid="uid://budka15vti8do"]
 
 [ext_resource type="Shader" path="res://blur.gdshader" id="1_5hn3n"]
 [ext_resource type="Script" path="res://scripts/option_menu.gd" id="2_kumx6"]
 [ext_resource type="AudioStream" uid="uid://7786sk84x7k5" path="res://Assets/audio/button_tick.wav" id="3_ol7rp"]
+[ext_resource type="Script" path="res://Scenes/SoundEffectsHSlider.gd" id="3_p8bji"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qhbe5"]
 shader = ExtResource("1_5hn3n")
@@ -101,6 +102,9 @@ layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_p8bji")
 
 [node name="HSeparator2" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
@@ -116,6 +120,6 @@ text = "Return"
 
 [node name="button_tick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ol7rp")
-bus = &"Sound Effects"
+bus = &"SoundEffects"
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

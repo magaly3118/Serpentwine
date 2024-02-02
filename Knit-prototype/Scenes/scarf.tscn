@@ -31,4 +31,4 @@ shape = SubResource("CircleShape2D_yseoh")
 stream = ExtResource("4_27i2t")
 volume_db = -10.895
 pitch_scale = 0.7
-bus = &"Sound Effects"
+bus = &"SoundEffects"

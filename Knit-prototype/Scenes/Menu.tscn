@@ -56,7 +56,7 @@ icon_alignment = 1
 
 [node name="button_tick" type="AudioStreamPlayer" parent="Menu"]
 stream = ExtResource("5_1pbch")
-bus = &"Sound Effects"
+bus = &"SoundEffects"
 
 [node name="OptionsMenu" parent="." instance=ExtResource("2_t6brx")]
 visible = false
