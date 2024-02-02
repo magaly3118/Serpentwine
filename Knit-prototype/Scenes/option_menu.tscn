@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://budka15vti8do"]
+[gd_scene load_steps=7 format=3 uid="uid://budka15vti8do"]
 
 [ext_resource type="Shader" path="res://blur.gdshader" id="1_5hn3n"]
 [ext_resource type="Script" path="res://scripts/option_menu.gd" id="2_kumx6"]
+[ext_resource type="Script" path="res://Scenes/MasterHSlider.gd" id="3_6cl67"]
 [ext_resource type="AudioStream" uid="uid://7786sk84x7k5" path="res://Assets/audio/button_tick.wav" id="3_ol7rp"]
 [ext_resource type="Script" path="res://Scenes/SoundEffectsHSlider.gd" id="3_p8bji"]
 
@@ -73,6 +74,9 @@ text = "Master Volume
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_6cl67")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
