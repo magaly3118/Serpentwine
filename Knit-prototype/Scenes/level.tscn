@@ -40,6 +40,8 @@ script = ExtResource("3_f6gnd")
 [node name="wall_sound" type="AudioStreamPlayer2D" parent="TopBound"]
 position = Vector2(-640, -28)
 stream = ExtResource("7_v175u")
+volume_db = 5.943
+pitch_scale = 4.0
 
 [node name="TopCollision" type="CollisionShape2D" parent="TopBound"]
 shape = SubResource("RectangleShape2D_7btrs")

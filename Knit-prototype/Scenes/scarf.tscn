@@ -29,3 +29,5 @@ shape = SubResource("CircleShape2D_yseoh")
 
 [node name="knit_sound" type="AudioStreamPlayer2D" parent="head"]
 stream = ExtResource("4_27i2t")
+volume_db = -10.895
+pitch_scale = 0.7

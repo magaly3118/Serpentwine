@@ -64,7 +64,7 @@ func _update_needle_sprites(texture_id):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$VBoxContainer/VBoxContainer/score_lable.text = "Rows: " + (str(score))
+	$VBoxContainer/VBoxContainer/score_lable.text = "Length: " + (str(score))
 
 func end_game():
 	$scarf.can_move = false
