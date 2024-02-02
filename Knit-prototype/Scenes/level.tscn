@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_l4i4k"]
 [ext_resource type="PackedScene" uid="uid://dtgoqskqwm3vw" path="res://Scenes/scarf.tscn" id="2_qbr5s"]
+[ext_resource type="Texture2D" uid="uid://bjahmfwgin5oq" path="res://Assets/Screens/GameLayout.png" id="2_sk20m"]
 [ext_resource type="Script" path="res://Scripts/bound.gd" id="3_f6gnd"]
-[ext_resource type="Texture2D" uid="uid://bpk5x5jg05105" path="res://TestingAssets/test_gameplay_bg.png" id="4_duagb"]
 [ext_resource type="Texture2D" uid="uid://brqecyrmsmb7l" path="res://TestingAssets/game_over_test.jpg" id="5_in6mb"]
 [ext_resource type="AudioStream" uid="uid://fb7cprdmbfu5" path="res://TestingAssets/audio/collect_sound.wav" id="6_06p5t"]
 [ext_resource type="AudioStream" uid="uid://bmxrrpwxe2j63" path="res://TestingAssets/audio/wall_sound.wav" id="7_v175u"]
@@ -22,8 +22,9 @@ offset_right = 1280.0
 offset_bottom = 720.0
 
 [node name="gameplay_bg" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(108.5, 30)
-texture = ExtResource("4_duagb")
+position = Vector2(2.08189e-12, 2.08189e-12)
+scale = Vector2(1.02648, 1.06342)
+texture = ExtResource("2_sk20m")
 centered = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
@@ -44,6 +45,7 @@ volume_db = 5.943
 pitch_scale = 4.0
 
 [node name="TopCollision" type="CollisionShape2D" parent="TopBound"]
+position = Vector2(5, -27)
 shape = SubResource("RectangleShape2D_7btrs")
 
 [node name="BotBound" type="Area2D" parent="."]
@@ -57,6 +59,7 @@ volume_db = 5.943
 pitch_scale = 4.0
 
 [node name="BotCollision" type="CollisionShape2D" parent="BotBound"]
+position = Vector2(-2, 3)
 shape = SubResource("RectangleShape2D_7btrs")
 
 [node name="LeftBound" type="Area2D" parent="."]
@@ -64,6 +67,7 @@ position = Vector2(107, 300)
 script = ExtResource("3_f6gnd")
 
 [node name="LeftCollision" type="CollisionShape2D" parent="LeftBound"]
+position = Vector2(-10, -19)
 shape = SubResource("RectangleShape2D_n1ele")
 
 [node name="wall_sound" type="AudioStreamPlayer2D" parent="LeftBound"]
@@ -83,6 +87,7 @@ volume_db = 5.943
 pitch_scale = 4.0
 
 [node name="RightCollision" type="CollisionShape2D" parent="RightBound"]
+position = Vector2(18, -19)
 shape = SubResource("RectangleShape2D_n1ele")
 
 [node name="scarf" parent="." instance=ExtResource("2_qbr5s")]
