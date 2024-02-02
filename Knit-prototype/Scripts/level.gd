@@ -4,6 +4,11 @@ extends Node2D
 @onready var optionsbutton: Button = get_node("PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Options")
 @onready var returnbutton: Button = get_node("OptionsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button")
 @onready var yarn = preload("res://Scenes/yarn.tscn")
+
+@onready var timer = get_node("YarnTimer")
+@onready var every_ten = get_node("Every10")
+@onready var pb = get_node("YarnProgress")
+
 var score = 0
 var time = 0
 var time_to_move = 5
@@ -28,8 +33,13 @@ var pink_needle_2 = preload("res://Assets/KnittingNeedles/AnimatedNeedle02_Pink_
 var purp_needle_2 = preload("res://Assets/KnittingNeedles/AnimatedNeedle02_Purple_Tiny.png")
 var needles_textures_2 = [blue_needle_2, pink_needle_2, purp_needle_2]
 
+var start_time = 4
+var total_time = start_time
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	timer.wait_time = start_time
+	every_ten.wait_time = 10
+	pb.value = 100
 	add_yarn()
 	_update_needle_sprites(next_texture_id) # mathc needles to the first spawned yarn
 
@@ -75,6 +85,15 @@ func _process(delta):
 	if (time < 0): 
 		score += 10
 		time = time_to_move
+	
+	if every_ten.wait_time <= 0:
+		start_time = start_time - 0.2
+		total_time = start_time
+		
+	pb.value = round((timer.time_left/total_time)*100)
+	
+	if pb.value == 0:
+		end_game(0)
 
 func end_game(sec):
 	$scarf.can_move = false # stop scarf movement
