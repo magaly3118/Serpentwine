@@ -87,24 +87,32 @@ func _update_needle_sprites(texture_id):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Control/score_lable.text = "Score: " + (str(score))
-	time -= delta
+	
 	# timer for adding score for being alive
-	if (time < 0): 
-		score += 10
-		time = time_to_move
 	if(not paused):
+		timer.paused = false
+		every_ten.paused = false
+		time -= delta
+		
+		if (time < 0): 
+			score += 10
+			time = time_to_move
+			
 		if every_ten.wait_time <= 0:
 			start_time = start_time - 0.2
 			total_time = start_time
 			
 		pb.value = round((timer.time_left/total_time)*100)
 	
-		
-	if pb.value == 0:
-		end_game(0)
+		if pb.value == 0:
+			end_game(0)
+	else:
+		timer.paused = true
+		every_ten.paused = true
 
 func end_game(sec):
 	$scarf.can_move = false # stop scarf movement
+	paused = true # stop timers, to stop timer animation
 	await get_tree().create_timer(sec).timeout # wait for sounds to play
 	
 	# delete scarf and body nodes
