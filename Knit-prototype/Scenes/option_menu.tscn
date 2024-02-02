@@ -116,5 +116,6 @@ text = "Return"
 
 [node name="button_tick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ol7rp")
+bus = &"Sound Effects"
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
