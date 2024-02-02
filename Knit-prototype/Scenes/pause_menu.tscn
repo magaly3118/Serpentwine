@@ -11,6 +11,7 @@ shader_parameter/blur_inner = 0.6
 shader_parameter/blur_outer = 0.66
 
 [node name="PauseMenu" type="ColorRect"]
+z_index = 100
 material = SubResource("ShaderMaterial_mlrhb")
 custom_minimum_size = Vector2(1280, 720)
 offset_right = 1152.0

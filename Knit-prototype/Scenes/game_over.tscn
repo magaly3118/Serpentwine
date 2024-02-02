@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu37821fe5sf7"]
+[gd_scene load_steps=3 format=3 uid="uid://b8gb4lp7nj4go"]
 
 [ext_resource type="Script" path="res://Scenes/game_over.gd" id="1_4ugvf"]
-[ext_resource type="Texture2D" uid="uid://c5a6jo454xlgw" path="res://Assets/GamOver_Tiny.png" id="1_nb4wo"]
+[ext_resource type="Texture2D" uid="uid://c5a6jo454xlgw" path="res://Assets/Screens/GameOver_Tiny.png" id="1_nb4wo"]
 
 [node name="ColorRect" type="ColorRect"]
 custom_minimum_size = Vector2(1280, 720)
