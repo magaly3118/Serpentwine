@@ -43,6 +43,7 @@ func _ready():
 	add_yarn()
 	_update_needle_sprites(next_texture_id) # mathc needles to the first spawned yarn
 
+	
 func add_yarn():
 	var instance = yarn.instantiate()
 	
@@ -62,6 +63,10 @@ func add_yarn():
 	add_child(instance)
 
 func spawn_yarn():
+	timer.stop
+	timer.wait_time = 4
+	pb.value =100
+	timer.start
 	# play sound effect of collecting yarn
 	$collect_sound.play(0)
 	# currently, score is just adding 5 for every ball of yarn grabbed
@@ -72,6 +77,9 @@ func spawn_yarn():
 	_update_needle_sprites(next_texture_id)
 	# adds new yarn ball onto play area
 	add_yarn()
+
+	
+	
 
 func _update_needle_sprites(texture_id):
 	$scarf/head/needles_sprite_01.texture = needles_textures_1[texture_id]
@@ -92,8 +100,10 @@ func _process(delta):
 		
 	pb.value = round((timer.time_left/total_time)*100)
 	
+		
 	if pb.value == 0:
-		end_game(0)
+		#end_game(0)
+		pass
 
 func end_game(sec):
 	$scarf.can_move = false # stop scarf movement

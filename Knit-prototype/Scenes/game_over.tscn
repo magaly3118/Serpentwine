@@ -20,7 +20,7 @@ texture = ExtResource("3_0a3bg")
 
 [node name="GameOverTiny2" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(640, 370)
+position = Vector2(640, 373)
 scale = Vector2(1.02802, 1.02802)
 texture = ExtResource("3_0a3bg")
 
@@ -54,6 +54,6 @@ flat = true
 stream = ExtResource("5_nv65u")
 bus = &"SoundEffects"
 
-[connection signal="pressed" from="HBoxContainer/Retry" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="HBoxContainer/Retry" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
