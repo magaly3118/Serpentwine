@@ -119,3 +119,11 @@ func change_head_sprite():
 	$head/needles_sprite_01.visible = not $head/needles_sprite_01.visible 
 	$head/needles_sprite_02.visible = not $head/needles_sprite_02.visible
 	$head/knit_sound.play(0)
+
+
+func toggle_can_move():
+	can_move = not can_move
+	var body_tiles = get_tree().get_nodes_in_group("body") # get all body tiles as a list
+	for tile in body_tiles: # for each scarf_body node in the list
+		tile.can_move = not tile.can_move # toggle can_move
+	

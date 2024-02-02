@@ -69,10 +69,16 @@ func _update_needle_sprites(texture_id):
 func _process(delta):
 	$VBoxContainer/VBoxContainer/score_lable.text = "Length: " + (str(score))
 
-func end_game():
-	$scarf.can_move = false
-	# add end game code!!!
-	#get_tree().paused = true
+func end_game(sec):
+	$scarf.can_move = false # stop scarf movement
+	await get_tree().create_timer(sec).timeout # wait for sounds to play
+	
+	# delete scarf and body nodes
+	$scarf.queue_free()
+	var body_tiles = get_tree().get_nodes_in_group("body") # get all body tiles as a list
+	for tile in body_tiles: # for each scarf_body node in the list
+		tile.can_move = not tile.can_move # toggle can_move
+	
 	# pops up the end game screen, need to resize the image with finalized asset
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
@@ -81,8 +87,10 @@ func _unhandled_input(event):
 		if OptionsScene.visible == false:
 			if PauseScene.visible == true:
 				PauseScene.visible = false
+				$scarf.toggle_can_move()
 			else:
 				PauseScene.visible = true
+				$scarf.toggle_can_move()
 			
 func _input(event):
 	if PauseScene.visible == true:
