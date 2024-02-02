@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://csxki4s4alclx"]
+[gd_scene load_steps=5 format=3 uid="uid://csxki4s4alclx"]
 
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_4xqh3"]
 [ext_resource type="Texture2D" uid="uid://couwlb18abg7x" path="res://Assets/buttons/game over button 1.png" id="2_5spr7"]
 [ext_resource type="Texture2D" uid="uid://c5a6jo454xlgw" path="res://Assets/Screens/GameOver_Tiny.png" id="3_0a3bg"]
 [ext_resource type="Texture2D" uid="uid://ces2gmmixifp5" path="res://Assets/buttons/game over button 2.png" id="3_4np6p"]
@@ -8,6 +9,7 @@
 custom_minimum_size = Vector2(1280, 720)
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_4xqh3")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 z_index = 3
@@ -25,12 +27,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 100
 
-[node name="Button" type="Button" parent="HSplitContainer"]
+[node name="Retry" type="Button" parent="HSplitContainer"]
 layout_mode = 2
 icon = ExtResource("2_5spr7")
 flat = true
 
-[node name="Button2" type="Button" parent="HSplitContainer"]
+[node name="MainMenu" type="Button" parent="HSplitContainer"]
 layout_mode = 2
 icon = ExtResource("3_4np6p")
 flat = true
@@ -46,3 +48,7 @@ z_index = 1
 position = Vector2(640, 370)
 scale = Vector2(1.02802, 1.02802)
 texture = ExtResource("3_0a3bg")
+
+[connection signal="pressed" from="HSplitContainer/Retry" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HSplitContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="HSplitContainer/MainMenu" to="." method="_on_main_menu_pressed"]
