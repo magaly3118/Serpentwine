@@ -50,12 +50,14 @@ shape = SubResource("RectangleShape2D_7btrs")
 position = Vector2(640, 576)
 script = ExtResource("3_f6gnd")
 
+[node name="wall_sound" type="AudioStreamPlayer2D" parent="BotBound"]
+position = Vector2(-640, -576)
+stream = ExtResource("7_v175u")
+volume_db = 5.943
+pitch_scale = 4.0
+
 [node name="BotCollision" type="CollisionShape2D" parent="BotBound"]
 shape = SubResource("RectangleShape2D_7btrs")
-
-[node name="wall_sound" type="AudioStreamPlayer2D" parent="BotBound"]
-position = Vector2(-640, -28)
-stream = ExtResource("7_v175u")
 
 [node name="LeftBound" type="Area2D" parent="."]
 position = Vector2(107, 300)
@@ -65,19 +67,23 @@ script = ExtResource("3_f6gnd")
 shape = SubResource("RectangleShape2D_n1ele")
 
 [node name="wall_sound" type="AudioStreamPlayer2D" parent="LeftBound"]
-position = Vector2(-640, -28)
+position = Vector2(-107, -300)
 stream = ExtResource("7_v175u")
+volume_db = 5.943
+pitch_scale = 4.0
 
 [node name="RightBound" type="Area2D" parent="."]
 position = Vector2(1170, 300)
 script = ExtResource("3_f6gnd")
 
+[node name="wall_sound" type="AudioStreamPlayer2D" parent="RightBound"]
+position = Vector2(-1170, -300)
+stream = ExtResource("7_v175u")
+volume_db = 5.943
+pitch_scale = 4.0
+
 [node name="RightCollision" type="CollisionShape2D" parent="RightBound"]
 shape = SubResource("RectangleShape2D_n1ele")
-
-[node name="wall_sound" type="AudioStreamPlayer2D" parent="RightBound"]
-position = Vector2(-640, -28)
-stream = ExtResource("7_v175u")
 
 [node name="scarf" parent="." instance=ExtResource("2_qbr5s")]
 position = Vector2(640, 380)
