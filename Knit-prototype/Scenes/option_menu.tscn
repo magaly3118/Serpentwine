@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://budka15vti8do"]
+[gd_scene load_steps=5 format=3 uid="uid://budka15vti8do"]
 
 [ext_resource type="Shader" path="res://blur.gdshader" id="1_5hn3n"]
 [ext_resource type="Script" path="res://scripts/option_menu.gd" id="2_kumx6"]
+[ext_resource type="AudioStream" uid="uid://7786sk84x7k5" path="res://Assets/audio/button_tick.wav" id="3_ol7rp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qhbe5"]
 shader = ExtResource("1_5hn3n")
@@ -112,5 +113,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 25
 text = "Return"
+
+[node name="button_tick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ol7rp")
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

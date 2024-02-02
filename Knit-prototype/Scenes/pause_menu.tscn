@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqcmg5a0547id"]
+[gd_scene load_steps=7 format=3 uid="uid://bqcmg5a0547id"]
 
 [ext_resource type="Shader" path="res://blur.gdshader" id="1_6t4o6"]
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="2_c1wwh"]
 [ext_resource type="Texture2D" uid="uid://ces2gmmixifp5" path="res://Assets/buttons/game over button 2.png" id="3_tns7l"]
 [ext_resource type="Texture2D" uid="uid://cuaq5j4qodp1q" path="res://Assets/buttons/main menu button 2.png" id="4_tis3f"]
+[ext_resource type="AudioStream" uid="uid://7786sk84x7k5" path="res://Assets/audio/button_tick.wav" id="5_6xd61"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mlrhb"]
 shader = ExtResource("1_6t4o6")
@@ -70,6 +71,9 @@ theme_override_font_sizes/font_size = 25
 icon = ExtResource("4_tis3f")
 flat = true
 icon_alignment = 1
+
+[node name="button_tick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6xd61")
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

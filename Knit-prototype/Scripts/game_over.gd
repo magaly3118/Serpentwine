@@ -11,10 +11,12 @@ func _process(delta):
 	pass
 
 func _on_main_menu_pressed():
+	$button_tick.play()
 	get_tree().change_scene_to_file("res://scenes/Menu.tscn")
 
 
 func _on_retry_pressed():
+	$button_tick.play()
 	get_tree().change_scene_to_file("res://scenes/level.tscn")
 
 

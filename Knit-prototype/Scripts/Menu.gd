@@ -2,7 +2,7 @@ extends Control
 
 @onready var OptionsScene: ColorRect = find_child("OptionsMenu")
 @onready var menu: VBoxContainer = get_node("Menu")
-@onready var optionsbutton: Button = get_node("VBoxContainer/Options")
+@onready var optionsbutton: Button = get_node("Menu/Options")
 @onready var returnbutton: Button = get_node("OptionsMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button")
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,14 +15,17 @@ func _process(delta):
 
 
 func _on_start_pressed():
+	$Menu/button_tick.play()
 	get_tree().change_scene_to_file("res://scenes/level.tscn")
 
 
 func _on_quit_pressed():
+	$Menu/button_tick.play()
 	get_tree().quit()
 
 
 func _on_options_pressed():
+	$Menu/button_tick.play()
 	OptionsScene.visible = true
 	menu.visible = false
 

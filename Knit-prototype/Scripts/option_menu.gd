@@ -12,5 +12,6 @@ func _process(delta):
 
 
 func _on_button_pressed():
+	$button_tick.play()
 	pass
 	
