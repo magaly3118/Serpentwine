@@ -8,6 +8,7 @@ extends Node2D
 @onready var timer = get_node("YarnTimer")
 @onready var every_ten = get_node("Every10")
 @onready var pb = get_node("YarnProgress")
+var paused = false
 
 var score = 0
 var time = 0
@@ -91,12 +92,12 @@ func _process(delta):
 	if (time < 0): 
 		score += 10
 		time = time_to_move
-	
-	if every_ten.wait_time <= 0:
-		start_time = start_time - 0.2
-		total_time = start_time
-		
-	pb.value = round((timer.time_left/total_time)*100)
+	if(not paused):
+		if every_ten.wait_time <= 0:
+			start_time = start_time - 0.2
+			total_time = start_time
+			
+		pb.value = round((timer.time_left/total_time)*100)
 	
 		
 	if pb.value == 0:
@@ -121,9 +122,11 @@ func _unhandled_input(event):
 			if PauseScene.visible == true:
 				PauseScene.visible = false
 				$scarf/head/knit_sound.play(1)
+				paused = false
 			else:
 				PauseScene.visible = true
 				$scarf/head/knit_sound.stop()
+				paused = true
 			$scarf.toggle_can_move()
 			
 func _input(event):
